@@ -1,0 +1,178 @@
+/**
+ * @name Saudi Vision - MBS Edition
+ * @author @d7_k
+ * @version 1.0.0
+ * @description ثيم فينكورد (Vencord) مستوحى من رؤية المملكة العربية السعودية بألوان هادئة ومريحة للعين.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+:root {
+    /* رابط صورة الخلفية */
+    --mbs-bg-image: url('https://i.postimg.cc/BnYy1QNZ/download-(4).jpg');
+    
+    /* درجات الألوان السعودية الهادئة */
+    --saudi-green: #004D26;
+    --saudi-emerald: #0D9488;
+    --saudi-mint: #2DD4BF;
+    --royal-gold: #C5A028;
+    --soft-gold: #FDE68A;
+    
+    /* شفافية اللوحات الزجاجية */
+    --background-primary: transparent !important;
+    --background-secondary: rgba(3, 12, 8, 0.72) !important;
+    --background-secondary-alt: rgba(2, 10, 6, 0.8) !important;
+    --background-tertiary: transparent !important;
+    --background-floating: rgba(3, 12, 8, 0.92) !important;
+    --bg-overlay-app-frame: transparent !important;
+    --bg-base-primary: transparent !important;
+    --bg-base-secondary: transparent !important;
+    --bg-base-tertiary: transparent !important;
+    --home-background: transparent !important;
+    
+    /* التوهجات الخفيفة */
+    --glow-green: 0 0 6px rgba(45, 212, 191, 0.18);
+    --glow-gold: 0 0 6px rgba(197, 160, 40, 0.15);
+    
+    /* الخطوط */
+    --font-primary: 'Cairo', 'gg sans', sans-serif !important;
+    --font-display: 'Cairo', 'gg sans', sans-serif !important;
+}
+
+/* =========================================
+   1. الخلفية الرئيسية والتدرج المريح
+   ========================================= */
+body {
+    background-image: var(--mbs-bg-image) !important;
+    background-size: cover !important;
+    background-position: center 20% !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(2, 10, 7, 0.82) 0%, rgba(1, 35, 18, 0.58) 50%, rgba(2, 10, 7, 0.85) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+#app-mount,
+[class*="appMount_"],
+[class*="app_"],
+[class*="bg_"],
+[class*="layers_"],
+[class*="layer_"],
+[class*="standardSidebarView_"],
+[class*="contentRegion_"],
+[class*="sidebarRegion_"],
+[class*="container_"],
+[class*="chat_"],
+[class*="chatContent_"],
+[class*="content_"],
+[class*="members_"],
+[class*="membersWrap_"],
+[class*="privateChannels_"],
+[class*="scroller_"],
+[class*="sidebar_"],
+[class*="guilds_"],
+[class*="wrapper_"],
+[class*="peopleColumn_"],
+[class*="nowPlayingColumn_"],
+[class*="tabBody_"],
+[class*="header_"],
+[class*="title_"] {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* =========================================
+   2. اللوحات الزجاجية (Glassmorphism)
+   ========================================= */
+nav[class*="guilds_"] {
+    background: rgba(2, 10, 7, 0.65) !important;
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(197, 160, 40, 0.12);
+}
+
+div[class*="sidebar_"] {
+    background: rgba(3, 12, 8, 0.7) !important;
+    backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(45, 212, 191, 0.1);
+}
+
+div[class*="chat_"],
+main[class*="container_"],
+div[class*="peopleColumn_"] {
+    background: rgba(2, 10, 7, 0.55) !important;
+    backdrop-filter: blur(6px);
+}
+
+div[class*="nowPlayingColumn_"],
+aside[class*="membersWrap_"] {
+    background: rgba(3, 12, 8, 0.68) !important;
+    border-left: 1px solid rgba(197, 160, 40, 0.12);
+}
+
+/* =========================================
+   3. التفاعلات والحركات الناعمة
+   ========================================= */
+[class*="wrapper_"] > [class*="svg_"] {
+    transition: transform 0.2s ease;
+}
+
+[class*="listItem_"]:hover [class*="wrapper_"] {
+    transform: scale(1.05);
+}
+
+[class*="pill_"] span {
+    background-color: var(--royal-gold) !important;
+}
+
+[class*="peopleListItem_"]:hover,
+[class*="channel_"]:hover,
+[class*="link_"]:hover {
+    background: rgba(45, 212, 191, 0.08) !important;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+}
+
+[class*="item_"][aria-selected="true"] {
+    background: linear-gradient(135deg, var(--saudi-green), var(--saudi-emerald)) !important;
+    border: 1px solid rgba(197, 160, 40, 0.25);
+    color: #fff !important;
+}
+
+button[class*="lookFilled_"] {
+    background: linear-gradient(135deg, var(--saudi-green), var(--saudi-emerald)) !important;
+    border: 1px solid rgba(197, 160, 40, 0.25) !important;
+}
+
+[class*="scrollableContainer_"],
+[class*="searchBar_"] {
+    background: rgba(2, 10, 7, 0.85) !important;
+    border: 1px solid rgba(45, 212, 191, 0.15) !important;
+    border-radius: 10px !important;
+}
+
+[class*="scrollableContainer_"]:focus-within {
+    border-color: var(--royal-gold) !important;
+}
+
+section[class*="panels_"] {
+    background: rgba(2, 10, 7, 0.85) !important;
+    border-top: 1px solid rgba(197, 160, 40, 0.15);
+}
+
+::-webkit-scrollbar {
+    width: 5px !important;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(13, 148, 136, 0.4) !important;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--royal-gold) !important;
+}
